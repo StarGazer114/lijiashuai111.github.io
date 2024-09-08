@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>拾光小阁</title>
+  
+  <subtitle>一隅安宁，拾起记忆的碎片</subtitle>
+  <link href="https://blog.bear556.top/atom.xml" rel="self"/>
+  
+  <link href="https://blog.bear556.top/"/>
+  <updated>2024-09-08T11:50:41.372Z</updated>
+  <id>https://blog.bear556.top/</id>
+  
+  <author>
+    <name>bear</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>域名更新</title>
+    <link href="https://blog.bear556.top/d6978ebbafad/"/>
+    <id>https://blog.bear556.top/d6978ebbafad/</id>
+    <published>2024-09-08T11:45:58.000Z</published>
+    <updated>2024-09-08T11:50:41.372Z</updated>
+    
+    
+    <summary type="html">新域名https://blog.bear556.top/，使用Netlify托管，国内访问速度更快</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>军训完辣</title>
+    <link href="https://blog.bear556.top/9e445c9ef506/"/>
+    <id>https://blog.bear556.top/9e445c9ef506/</id>
+    <published>2024-08-29T01:28:55.927Z</published>
+    <updated>2024-08-29T09:10:27.698Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="军训" scheme="https://blog.bear556.top/tags/%E5%86%9B%E8%AE%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>脚崴了。。。</title>
+    <link href="https://blog.bear556.top/d107da36a27c/"/>
+    <id>https://blog.bear556.top/d107da36a27c/</id>
+    <published>2024-08-28T05:59:16.439Z</published>
+    <updated>2024-08-28T22:22:26.309Z</updated>
+    
+    
+    <summary type="html">上楼时踩空把脚崴了。。~~又可以摸鱼了~~</summary>
+    
+    
+    
+    
+    <category term="军训" scheme="https://blog.bear556.top/tags/%E5%86%9B%E8%AE%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用docsify+GitHubPages搭建静态文档站</title>
+    <link href="https://blog.bear556.top/f545c0dace83/"/>
+    <id>https://blog.bear556.top/f545c0dace83/</id>
+    <published>2024-08-25T09:57:05.000Z</published>
+    <updated>2024-09-08T11:50:41.372Z</updated>
+    
+    
+    <summary type="html">安装docsify ，安装成功了，可以看到对应目录下出现了这些文件，现在就可以编辑`README.md`来修改主页内容了</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.bear556.top/b411b8820b18/"/>
+    <id>https://blog.bear556.top/b411b8820b18/</id>
+    <published>2024-08-23T21:40:05.827Z</published>
+    <updated>2024-08-27T21:42:27.672Z</updated>
+    
+    
+    <summary type="html">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any probems when using Hexo you can find the answer in troubleshooting or you can ask me on GitHub. Quick S...</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>
