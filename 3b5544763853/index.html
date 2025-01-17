@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>自建kms服务器激活Windows和office | 拾光小阁</title><meta name="author" content="br"><meta name="copyright" content="br"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="项目地址：https:&#x2F;&#x2F;github.com&#x2F;dylanbai8&#x2F;kmspro需要开放1688端口。激活方式：powershell输入slmgr &#x2F;skms &lt;kms服务器地址&gt; &amp;&amp; slmgr &#x2F;ato你也可以使用我搭建的kms服务器slmgr &#x2F;skms kms.bear556.top &amp;&amp; slmgr &#x2F;ato">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自建kms服务器激活Windows和office">
+<meta property="og:url" content="https://bear556.top/3b5544763853/index.html">
+<meta property="og:site_name" content="拾光小阁">
+<meta property="og:description" content="项目地址：https:&#x2F;&#x2F;github.com&#x2F;dylanbai8&#x2F;kmspro需要开放1688端口。激活方式：powershell输入slmgr &#x2F;skms &lt;kms服务器地址&gt; &amp;&amp; slmgr &#x2F;ato你也可以使用我搭建的kms服务器slmgr &#x2F;skms kms.bear556.top &amp;&amp; slmgr &#x2F;ato">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://t.mwm.moe/fj">
+<meta property="article:published_time" content="2024-10-01T02:27:37.000Z">
+<meta property="article:modified_time" content="2024-12-16T07:07:45.961Z">
+<meta property="article:author" content="br">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="kms">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://t.mwm.moe/fj"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://bear556.top/3b5544763853/index.html"><link rel="preconnect"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '自建kms服务器激活Windows和office',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@700&display=swap" rel="stylesheet"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/rss.xml" title="拾光小阁" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(https://cn-sy1.rains3.com/static-1/img/DFeeiOJQRFYUUFbBQM.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fas fa-comment"></i><span> 叨叨</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.mwm.moe/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">拾光小阁</span></a><a class="nav-page-title" href="/"><span class="site-name">自建kms服务器激活Windows和office</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fas fa-comment"></i><span> 叨叨</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">自建kms服务器激活Windows和office</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-01T02:27:37.000Z" title="发表于 2024-10-01 10:27:37">2024-10-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-16T07:07:45.961Z" title="更新于 2024-12-16 15:07:45">2024-12-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="waline-pageview-count" data-path="/3b5544763853/"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/dylanbai8/kmspro">https://github.com/dylanbai8/kmspro</a><br>需要开放1688端口。<br>激活方式：powershell输入<code>slmgr /skms &lt;kms服务器地址&gt; &amp;&amp; slmgr /ato</code><br>你也可以使用我搭建的kms服务器<code>slmgr /skms kms.bear556.top &amp;&amp; slmgr /ato</code></p>
+<span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 一键安装<span class="variable constant_">KMS</span>服务 （<span class="title class_">Debian</span>/<span class="title class_">Ubuntu</span>/<span class="title class_">Mint</span> 等）</span><br><span class="line">$ wget -N --no-check-certificate git.<span class="property">io</span>/k.<span class="property">sh</span> &amp;&amp; chmod +x k.<span class="property">sh</span> &amp;&amp; bash k.<span class="property">sh</span> debian</span><br><span class="line"></span><br><span class="line"># 一键安装<span class="variable constant_">KMS</span>服务 （<span class="title class_">CentOS</span>/<span class="title class_">Redhat</span>/<span class="title class_">Fedora</span> 等）（如果系统开启了防火墙 须自行开放 <span class="number">1688</span> 端口）</span><br><span class="line">$ wget -N --no-check-certificate git.<span class="property">io</span>/k.<span class="property">sh</span> &amp;&amp; chmod +x k.<span class="property">sh</span> &amp;&amp; bash k.<span class="property">sh</span> centos</span><br><span class="line"></span><br><span class="line"># 启动<span class="variable constant_">KMS</span>服务</span><br><span class="line">$ bash k.<span class="property">sh</span> start</span><br><span class="line"></span><br><span class="line"># 服务器<span class="variable constant_">IP</span>地址既是<span class="variable constant_">KMS</span>服务器地址</span><br><span class="line"># 也可以将域名解析至<span class="variable constant_">IP</span>使用（支持<span class="title class_">IPv6</span> 即<span class="variable constant_">AAAA</span>记录）</span><br><span class="line"></span><br><span class="line"># 关闭<span class="variable constant_">KMS</span>服务</span><br><span class="line">$ bash k.<span class="property">sh</span> stop</span><br><span class="line"></span><br><span class="line"># 添加开机自启动<span class="variable constant_">KMS</span>服务</span><br><span class="line">$ bash k.<span class="property">sh</span> auto</span><br><span class="line"></span><br><span class="line"># 重启<span class="variable constant_">KMS</span>服务</span><br><span class="line">$ bash k.<span class="property">sh</span> restart</span><br><span class="line"></span><br><span class="line"># 查看<span class="variable constant_">KMS</span>服务运行状态</span><br><span class="line">$ bash k.<span class="property">sh</span> status</span><br><span class="line"></span><br><span class="line"># 卸载<span class="variable constant_">KMS</span>服务</span><br><span class="line">$ bash k.<span class="property">sh</span> uninstall</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><a class="post-meta__tags" href="/tags/kms/">kms</a></div><div class="post-share"><div class="social-share" data-image="https://t.mwm.moe/fj" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/88e16ba1a3a2/" title="数据备份“321”原则"><img class="cover" src="https://t.mwm.moe/fj" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">数据备份“321”原则</div></div><div class="info-2"><div class="info-item-1">数据备份321原则是指3份备份，2种存储介质，1份异地备份   3份备份我们需要至少备份三个副本，这样即使其中的一个出现了问题，我们也能够有其他的备份来恢复数据，如果数据故障是独立事件，那么三份数据同时故障的几率将是百万分之一。 2种存储介质用2种不同媒介保存可确保不会因为使用同一装置存储数据而引起相同的故障。由于同一存储方案的不同硬盘有可能连续发生故障，建议将数据存于至少2种存储媒介，而且媒介需要位于不同地方。 1份异地备份由于火灾、洪水等意外即可毁坏区域内所有备份，建议将数据存储至不同的区域，比如云端。  数据无价，希望大家保存好自己的数据。 </div></div></div></a><a class="pagination-related" href="/bd79929458f6/" title="白嫖HEVC视频扩展"><img class="cover" src="https://cn-sy1.rains3.com/img-bed/2024/12/22/67678313b693d.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">白嫖HEVC视频扩展</div></div><div class="info-2"><div class="info-item-1">hevc视频扩展可以让你的设备播放hevc格式的视频，但是微软商店上的hevc视频扩展是收费的，接下来教大家如何白嫖（其实就是Microsoft Rewards）    以下所有操作都需要挂港区魔法！！！同时系统地区一定要改成香港特别行政区！！！  兑换方式首先打开你的edge浏览器，点击账户，找到Microsoft Rewards积分，点击兑换。找到Microsoft 礼物卡，点击兑换（需要有足够的积分，赚取积分的方法下面会说）如果你的微软账户没有绑定手机号，会提示你绑定手机号，绑定大陆手机号即可。点击兑换，输入验证码，兑换成功~然后前往微软商店搜索hevc，点击购买即可 一些问题无法兑换“遇到了一些问题，请二十四小时后重试”这种情况有可能已经兑换成功了，留意一下邮箱里有没有微软发来的邮件，像这样：如果没有，请第二天重试 兑换页面没有Microsoft...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/c309a01be576/" title="使用docsify+GitHubPages搭建静态文档站"><img class="cover" src="https://t.mwm.moe/fj" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-25</div><div class="info-item-2">使用docsify+GitHubPages搭建静态文档站</div></div><div class="info-2"><div class="info-item-1">我建的站：赛博扫盲手册 安装docsify1234npm i docsify-cli -g # 安装docsifydocsify init ./docs # 初始化并创建./docs文件夹  安装成功了，可以看到对应目录下出现了这些文件：  index.html 入口文件 README.md 会做为主页内容渲染 .nojekyll 用于阻止 GitHub Pages 忽略掉下划线开头的文件  现在就可以编辑README.md来修改主页内容了，你也可以使用docsify serve ./docs来在本机3000端口上启动一个实时更新的开发服务器来查看你的更改。 多页文档直接在docs目录下新建md文件，通过域名/文件名进行访问。 定制侧边栏在创建多页文档之后你会发现，只能手动输入地址去访问对应的文档，这时候就需要通过编辑侧边栏来实现，在index.html里找到window.$docsify = &#123;在下面添加loadSidebar: true 1234567&lt;!-- index.html --&gt; &lt;script&gt;   ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">br</div><div class="author-info-description">万钟则不辨礼仪而受之，万种于我美滋滋</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/StarGazer114"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/StarGazer114" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:ljsh666@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://x.com/bear36609893920" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a><a class="social-icon" href="/rss.xml" target="_blank" title="RSS"><i class="fas fa-rss" style="color: #f26522;"></i></a><a class="social-icon" href="https://git.bear556.top/br/stargazer114.github.io" target="_blank" title="网站代码"><i class="far fa-file-code" style="color: #3AC402;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">随机更新，时常失踪</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/9ef68bee387f/" title="人体系统调优指南">人体系统调优指南</a><time datetime="2025-01-15T17:58:41.000Z" title="发表于 2025-01-16 01:58:41">2025-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/6adfd783b527/" title="给你的QQNT装上插件-LiteLoaderQQNT">给你的QQNT装上插件-LiteLoaderQQNT</a><time datetime="2025-01-13T17:01:37.000Z" title="发表于 2025-01-14 01:01:37">2025-01-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/6f831c5bafc6/" title="新年">新年</a><time datetime="2024-12-31T09:53:39.683Z" title="发表于 2024-12-31 17:53:39">2024-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/fab3e3ad8b47/" title="重构计划">重构计划</a><time datetime="2024-12-21T06:04:14.218Z" title="发表于 2024-12-21 14:04:14">2024-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/58dc525d892f/" title="原神圣经"><img src="https://cn-sy1.rains3.com/img-bed/2024/12/22/6767835f07582.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="原神圣经"/></a><div class="content"><a class="title" href="/58dc525d892f/" title="原神圣经">原神圣经</a><time datetime="2024-11-18T06:36:50.000Z" title="发表于 2024-11-18 14:36:50">2024-11-18</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By br</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a rel="nofollow" target="_blank" href="https://icp.gov.moe/?keyword=20240229">萌ICP备20240229号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.bear556.top',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('/pluginsSrc/@waline/client/dist/waline.css')
+        .then(() => import('/pluginsSrc/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="9401784769" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="/pluginsSrc/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜~" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,5 @@
+User-agent: *
+Sitemap: https://bear556.top/sitemap.xml
+Sitemap: https://bear556.top/page-sitemap.xml
+Sitemap: https://bear556.top/tag-sitemap.xml
+Sitemap: https://bear556.top/post-sitemap.xml
